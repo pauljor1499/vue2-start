@@ -1,31 +1,26 @@
 <template>
     <div class="product-one">
         <h4>Product List One</h4>
-        <div v-for="(product, index) in saleProducts" :key="index">
+        <div v-for="(user, index) in fetchUsers" :key="index">
             <div>
-                {{ product }}
+                {{ user.firstName }}
             </div>
         </div>
-        <button v-on:click="reducePrice(4)">Reduce Price</button>
+        <button @click="getUsers()">Get Users</button>
     </div>
 </template>
 
 <script>
 export default {
     computed: {
-        products() {
-            return this.$store.state.products;
-        },
-
-        saleProducts() {
-            return this.$store.getters.saleProducts;
+        fetchUsers() {
+            return this.$store.getters.getUsers;
         },
     },
 
     methods: {
-        reducePrice(amount) {
-            // this.$store.commit("reducePrice", amount);
-            this.$store.dispatch("reducePrice", amount);
+        getUsers() {
+            this.$store.dispatch("getUsers");
         },
     },
 };

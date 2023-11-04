@@ -6,6 +6,7 @@
                 {{ product }}
             </div>
         </div>
+        <button v-on:click="reducePrice(4)">Reduce Price</button>
     </div>
 </template>
 
@@ -18,6 +19,13 @@ export default {
 
         saleProducts() {
             return this.$store.getters.saleProducts;
+        },
+    },
+
+    methods: {
+        reducePrice(amount) {
+            // this.$store.commit("reducePrice", amount);
+            this.$store.dispatch("reducePrice", amount);
         },
     },
 };

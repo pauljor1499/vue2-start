@@ -7,3 +7,7 @@ export const reducePrice = (state, payload) => {
 export const addUser = (state, payload) => {
     state.users.push(payload);
 };
+
+export const setProducts = (state, payload) => {
+    state.users = payload;
+};
