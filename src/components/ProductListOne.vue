@@ -1,20 +1,27 @@
 <template>
     <div class="product-one">
         <h4>Product List One</h4>
-        <div v-if="loadingStatus === false">
-            <div v-for="(user, index) in fetchUsers" :key="index">
+        <div v-if="fetchUsers.length !== 0">
+            <input v-model="search" type="text" placeholder="Search" />
+            <div v-for="(user, index) in searchUsers" :key="index">
                 <div>
                     {{ user.firstName }}
                 </div>
             </div>
         </div>
-        <div v-else>Loading...</div>
+        <div v-if="loadingStatus">Loading...</div>
         <button @click="getUsers()">Get Users</button>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            search: "",
+        };
+    },
+
     computed: {
         fetchUsers() {
             return this.$store.state.users;
@@ -22,6 +29,17 @@ export default {
 
         loadingStatus() {
             return this.$store.state.loading;
+        },
+
+        searchUsers() {
+            const users = this.$store.state.users.filter((user) => {
+                return this.search.toLowerCase() === ""
+                    ? user
+                    : user.firstName
+                          .toLowerCase()
+                          .includes(this.search.toLowerCase());
+            });
+            return users;
         },
     },
 
