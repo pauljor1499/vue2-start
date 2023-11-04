@@ -1,3 +1,7 @@
+export const updateLoading = (state, payload) => {
+    state.loading = payload;
+};
+
 export const reducePrice = (state, payload) => {
     state.products.forEach((product) => {
         product.price -= payload;

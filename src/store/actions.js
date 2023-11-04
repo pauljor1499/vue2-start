@@ -10,7 +10,9 @@ export const createUser = ({ commit }, payload) => {
 };
 
 export const getUsers = ({ commit }) => {
+    commit("updateLoading", true);
     axios.get(BASE_URL).then((response) => {
         commit("setProducts", response.data.users);
+        commit("updateLoading", false);
     });
 };
