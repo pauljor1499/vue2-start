@@ -1,16 +1,41 @@
 <template>
     <div>
-        <HelloWorld :msg="'Welcome to Your Vue.js App'" />
+        <ProductListOne :products="products" />
+        <ProductListTwo :products="products" />
     </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import ProductListOne from "@/components/ProductListOne.vue";
+import ProductListTwo from "@/components/ProductListTwo.vue";
 
 export default {
     name: "HomeView",
     components: {
-        HelloWorld,
+        ProductListOne,
+        ProductListTwo,
+    },
+    data() {
+        return {
+            products: [
+                {
+                    name: "Banana Skin",
+                    price: 20,
+                },
+                {
+                    name: "Shiny Star",
+                    price: 40,
+                },
+                {
+                    name: "Green Shells",
+                    price: 60,
+                },
+                {
+                    name: "Red Shells",
+                    price: 80,
+                },
+            ],
+        };
     },
 };
 </script>
