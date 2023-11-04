@@ -1,14 +1,10 @@
-<template></template>
-
-<!--<template>
+<template>
     <div>
         <h4>Dashboard</h4>
+        <br />
+        <br />
+        <span>{{ $route.params.user_id }}</span>
         <mt-search v-model="search"></mt-search>
-        <div v-for="(item, index) in getAllUsers" :key="index">
-            <div>
-                {{ item }}
-            </div>
-        </div>
     </div>
 </template>
 
@@ -19,21 +15,5 @@ export default {
             search: "",
         };
     },
-
-    computed: {
-        getAllUsers() {
-            return this.$store.getters.fetchUsers;
-        },
-
-        filterSearch() {
-            const results = ["a", "b", "c", "d", "e", "f"];
-            return results;
-        },
-    },
-
-    created() {
-        this.$store.dispatch("fetchUsers");
-    },
 };
 </script>
--->
