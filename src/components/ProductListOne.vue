@@ -17,7 +17,7 @@
 export default {
     computed: {
         fetchUsers() {
-            return this.$store.getters.getUsers;
+            return this.$store.state.users;
         },
 
         loadingStatus() {

@@ -7,7 +7,3 @@ export const saleProducts = (state) => {
     });
     return saleProducts;
 };
-
-export const getUsers = (state) => {
-    return state.users;
-};
