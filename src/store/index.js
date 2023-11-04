@@ -1,53 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import UsersAPI from "@/api/UsersAPI";
 
 Vue.use(Vuex);
 
+import state from "./state";
+import * as getters from "./getters";
+import * as mutations from "./mutations";
+import * as actions from "./actions";
+
 export const store = new Vuex.Store({
     strict: true,
-    state: {
-        products: [
-            {
-                name: "Banana Skin",
-                price: 20,
-            },
-            {
-                name: "Shiny Star",
-                price: 40,
-            },
-            {
-                name: "Green Shells",
-                price: 60,
-            },
-            {
-                name: "Red Shells",
-                price: 80,
-            },
-        ],
-    },
-    getters: {
-        saleProducts: (state) => {
-            var saleProducts = state.products.map((product) => {
-                return {
-                    name: "**" + product.name + "**",
-                    price: product.price / 2,
-                };
-            });
-            return saleProducts;
-        },
-    },
-    mutations: {
-        reducePrice: (state, payload) => {
-            // this.$store.commit("reducePrice");
-            state.products.forEach((product) => {
-                product.price -= payload;
-            });
-        },
-    },
-    actions: {
-        reducePrice: (context, payload) => {
-            // this.$store.dispatch("reducePrice");
-            context.commit("reducePrice", payload);
-        },
-    },
+    state,
+    getters,
+    mutations,
+    actions,
 });

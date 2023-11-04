@@ -6,8 +6,17 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        name: "home",
-        component: () => import("@/views/HomeView.vue"),
+        component: () => import("@/views/Products.vue"),
+    },
+    {
+        path: "/login",
+        component: () => import("@/views/LoginPage.vue"),
+        props: true,
+    },
+    {
+        name: "Dashboard",
+        path: "/dashboard/:user_id",
+        component: () => import("@/views/Dashboard.vue"),
     },
 ];
 
