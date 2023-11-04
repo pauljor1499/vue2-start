@@ -1,11 +1,12 @@
 <template>
     <div class="product-one">
+        <h4>Product List One</h4>
         <div v-for="(product, index) in saleProducts" :key="index">
             <div>
                 {{ product }}
             </div>
         </div>
-        <button v-on:click="reducePrice()">Reduce Price</button>
+        <button v-on:click="reducePrice(4)">Reduce Price</button>
     </div>
 </template>
 
@@ -22,8 +23,9 @@ export default {
     },
 
     methods: {
-        reducePrice: function () {
-            this.$store.commit("reducePrice");
+        reducePrice(amount) {
+            // this.$store.commit("reducePrice");
+            this.$store.dispatch("reducePrice", amount);
         },
     },
 };
