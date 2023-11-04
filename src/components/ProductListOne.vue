@@ -24,7 +24,7 @@ export default {
 
     methods: {
         reducePrice(amount) {
-            // this.$store.commit("reducePrice");
+            // this.$store.commit("reducePrice", amount);
             this.$store.dispatch("reducePrice", amount);
         },
     },
