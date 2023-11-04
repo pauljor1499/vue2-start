@@ -1,6 +1,6 @@
 <template>
     <div class="product-two">
-        <div v-for="(product, index) in products" :key="index">
+        <div v-for="(product, index) in saleProducts" :key="index">
             <div>
                 {{ product }}
             </div>
@@ -13,6 +13,10 @@ export default {
     computed: {
         products() {
             return this.$store.state.products;
+        },
+
+        saleProducts() {
+            return this.$store.getters.saleProducts;
         },
     },
 };
