@@ -35,9 +35,7 @@ export default {
             const users = this.$store.state.users.filter((user) => {
                 return this.search.toLowerCase() === ""
                     ? user
-                    : user.firstName
-                          .toLowerCase()
-                          .includes(this.search.toLowerCase());
+                    : user.firstName.toLowerCase().includes(this.search.toLowerCase());
             });
             return users;
         },

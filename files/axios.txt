@@ -1,0 +1,31 @@
+Send get request - GET requests are intended to retrieve data from a server and do not modify the server's state.
+axios
+        .get(“http://sampledata.com/users”)
+        .then((response) => {
+            console.log(response.data.users);
+        })
+        .catch((err) => console.log(err));
+
+Send post request - POST is used to send data to a server to create/update a resource.
+async register_teacher(teacher) {
+        const user = await axios.post(url + "/register", teacher);
+        return user;
+    }
+
+Send put request - PUT is used to send data to a server to create/update a resource.
+async update_user_details(updated_details) {
+        const user = await axios.put(url + "/update/user_details", updated_details);
+        return user;
+    }
+
+Send patch request - PATCH method is used to apply partial modifications to a resource.
+async change_password(updated_data) {
+        const user = await axios.patch(url + "/update/user_password", updated_data);
+        return user;
+    }
+
+Send delete request - DELETE method deletes the specified resource.
+async remove_profile_photo() {
+        const user = await axios.delete(url + "/delete/user_profile_picture");
+        return user;
+    }
